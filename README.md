@@ -11,3 +11,9 @@ Reads pick-and-place data exported from CAD software (.txt) and converts it into
 Status
 
 Work in progress. As it's been a while since I last used Python, this project is as much a learning curve as it is a build. Core conversion logic works and has been verified against sample data, currently being restructured into reusable functions. GUI planned next.
+
+Tech stack
+
+Python
+VS Code
+Git / GitHub
