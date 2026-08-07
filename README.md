@@ -1,2 +1,9 @@
 # mydata-pcb-converter
-Converts CAD-exported pick-and-place data into MyData SMT machine format - automates a manual PCB assembly workflow.
+
+About
+
+I've been learning to code for close to three years, but I'd never used it to solve a real problem — just tutorials and "pretty things." This project is different: I worked for a company, and one of the time-consuming jobs was converting CAD-exported pick-and-place data into the MyData format their SMT machine needs, every single time, by hand. I built this to actually fix that, and to force myself to learn by solving something real rather than following along.
+
+What it does
+
+Reads pick-and-place data exported from CAD software (.txt) and converts it into the MyData .pcb format used by SMT pick-and-place machines — converting units (mm → µm), extracting reference points, and formatting component placement records.
