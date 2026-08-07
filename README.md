@@ -7,3 +7,7 @@ I've been learning to code for close to three years, but I'd never used it to so
 What it does
 
 Reads pick-and-place data exported from CAD software (.txt) and converts it into the MyData .pcb format used by SMT pick-and-place machines — converting units (mm → µm), extracting reference points, and formatting component placement records.
+
+Status
+
+Work in progress. As it's been a while since I last used Python, this project is as much a learning curve as it is a build. Core conversion logic works and has been verified against sample data, currently being restructured into reusable functions. GUI planned next.
