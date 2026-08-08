@@ -1,0 +1,106 @@
+[FileID 1.00]
+
+[General]
+Pcb name          |TEL LED-0134-001 iss 1.1
+Barcode           : 
+Pcb units         : mm
+Pcb length        : 242.000
+Pcb width         : 130.000
+Pcb thickness     : 1.600
+Active side       : Top
+Pcb type          : Multiple
+Pcb orientation   : 0
+Badmark support   : Yes
+Component library : .\Complib.clb
+Fiducial library  : .\Fidlib.flb
+Pcb comment       : DEK SCREEN                                         POWER SUPPLY 15V
+                  : SOLDER PASTE              NC LF
+                  : OVEN                          PROGRAM01
+
+[Top side]
+Use variants only : No
+
+[Fiducials]
+Use reference points       : Yes
+Check all panel refs       : No
+Check refs with both heads : Yes
+Double-check refs          : Yes
+Check local refs           : Yes
+Use badmark fiducial       : Yes
+
+[Global Reference Points]
+;Fiducial name------------------|----X---|----Y---|-Comment------------
+2.0MM                           |   4.106|   4.661| 
+2.0MM                           | 236.103| 124.785| 
+2.0MM                           | 236.144|   4.803| 
+
+[Reference Panel Reference Points]
+;Fiducial name------------------|----X---|----Y---|-Comment------------
+4.3MM HOLE                      |  22.551|  25.130| 
+4.3MM HOLE                      |  40.593|  43.110| 
+4.3MM HOLE                      |  40.607|  25.130| 
+
+[Panel Reference Points]
+;--X1---|---Y1---|---X2---|---Y2---
+  81.540|  25.214|  99.582|  43.194
+ 140.549|  25.244| 158.591|  43.224
+ 199.558|  25.269| 217.600|  43.249
+  22.525|  86.110|  40.567| 104.090
+  81.527|  86.140|  99.569| 104.120
+ 140.562|  86.197| 158.604| 104.177
+ 199.528|  86.263| 217.570| 104.243
+
+[Components]
+;Ref----|-Component name-----------------|----X---|----Y---|-Angle-|Prio|-ID-
+LED1      |SMLED-AV-02-240-XPG3                    |  31.571|  15.437|  90.00|
+LED2      |SMLED-AV-02-240-XPG3                    |  31.587|  22.938|  90.00|
+LED3      |SMLED-AV-02-240-XPG3                    |  31.559|  30.425|  90.00|
+LED4      |SMLED-AV-02-240-XPG3                    |  31.583|  37.918|  90.00|
+LED5      |SMLED-AV-02-240-XPG3                    |  31.555|  45.418|  90.00|
+LED6      |SMLED-AV-02-240-XPG3                    |  31.549|  52.926|  90.00|
+LED7      |SMLED-AV-02-240-XPG3                    |  42.718|  51.372|  90.00|
+LED8      |SMLED-AV-02-240-XPG3                    |  49.281|  43.842|  90.00|
+LED9      |SMLED-AV-02-240-XPG3                    |  49.299|  34.218|   0.00|
+LED10     |SMLED-AV-02-240-XPG3                    |  40.572|  34.191|   0.00|
+LED11     |SMLED-AV-02-240-XPG3                    |  49.313|  24.548|  90.00|
+LED12     |SMLED-AV-02-240-XPG3                    |  42.807|  17.013|  90.00|
+LED13     |SMLED-AV-02-240-XPG3                    |  20.390|  17.002|  90.00|
+LED14     |SMLED-AV-02-240-XPG3                    |  13.841|  24.505|  90.00|
+LED15     |SMLED-AV-02-240-XPG3                    |  22.583|  34.178| 180.00|
+LED16     |SMLED-AV-02-240-XPG3                    |  13.853|  34.104| 180.00|
+LED17     |SMLED-AV-02-240-XPG3                    |  13.814|  43.811|  90.00|
+LED18     |SMLED-AV-02-240-XPG3                    |  20.345|  51.346|  90.00|
+T1      |SMTS-P1K0.0805.1FC.B.S-0805               |  31.591|  34.167|   0.00|
+
+[Bottom side]
+Use variants only : No
+
+[Fiducials]
+Use reference points       : Yes
+Check all panel refs       : Yes
+Check refs with both heads : Yes
+Double-check refs          : No
+Check local refs           : Yes
+Use badmark fiducial       : Yes
+
+[Global Reference Points]
+;Fiducial name------------------|----X---|----Y---|-Comment------------
+
+[Reference Panel Reference Points]
+;Fiducial name------------------|----X---|----Y---|-Comment------------
+4.3MM HOLE                      | 219.449|  25.130| 
+4.3MM HOLE                      | 201.407|  43.110| 
+4.3MM HOLE                      | 201.393|  25.130| 
+
+[Panel Reference Points]
+;--X1---|---Y1---|---X2---|---Y2---
+ 160.449|  25.130| 142.407|  43.110
+ 101.449|  25.130|  83.407|  43.110
+  42.449|  25.130|  24.407|  43.110
+ 219.449|  84.130| 201.407| 102.110
+ 160.449|  84.130| 142.407| 102.110
+ 101.449|  84.130|  83.407| 102.110
+  42.449|  84.130|  24.407| 102.110
+
+[Components]
+;Ref----|-Component name-----------------|----X---|----Y---|-Angle-|Prio|-ID-
