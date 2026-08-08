@@ -14,6 +14,10 @@ def get_fiducials(data):
         if line.startswith("4.3MM"):
         #format line removing carrige return and spaces
             split = split_name(line)
+        #remove 4.3mm from split list
+            split.pop(0)
+        #add F3 prefix to start of list 
+            split.insert(0,"F3")
         # IF value in line is a number format 
             formatted_value = is_valid_number(split)
             fid_clean.append(formatted_value)
@@ -67,9 +71,9 @@ def convert_to_microns(value):
 
 
 #main
-path = "LED-0134-001 iss 1.txt"
+path = "test_files/LED-0134-001 iss 1.txt"
 data = load_file(path)
-get_fiducials(data)
+print(get_fiducials(data))
 
 
 
