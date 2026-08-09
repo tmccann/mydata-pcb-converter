@@ -1,3 +1,6 @@
+from tkinter import filedialog
+import tkinter as tk
+
 # import file function
 def load_file(path):
     with open(path, "r") as cadFile:
@@ -133,24 +136,35 @@ def convert_to_microns(value):
 
 #main
 def main():
-    path = "test_files/LED-0134-001 iss 1.txt"
-    # single disk read - lines reused by every extraction function below
-    data = load_file(path)
-    f1 = get_pcb_name(data)
-    f3 = get_fiducials(data)
-    # F4-F7 have no known meaning in source data (single sample, unresolved) - hardcoded as constants
-    f4_to_f7 = [["F4", 0, 0,],["F5", 0, 0,],["F6", 0, 0,],["F7", 0, 0,],]
-    f8_and_f9 = get_component_data(data)
-    end_marker = ["E"]
-    # use pcb name (f1[1]) as output filename
-    save_name = f"{f1[1]}.pcb"
-    # assemble all sections in required output order: F1, F3 x3, F4-F7, F8/F9 pairs, E
-    file = [f1] + f3 + f4_to_f7 + f8_and_f9 + end_marker
-    # open once, write every line while file stays open (avoids truncating on each write)
-    with open(f"{save_name}", "w", encoding="utf-8") as f:
-        for line in file:
-            # convert each item to string and join with spaces to build the output line
-            newline = " ".join(str(word) for word in line)
-            f.writelines(f"{newline}\n")
+   
+
+    # tkinter needs a root window to exist, even if we never show it
+    root = tk.Tk()
+    root.withdraw()  # hide the empty root window - we only want the dialog
+
+    path = filedialog.askopenfilename(
+    title="Select CAD export file",
+    filetypes=[("Text files", "*.txt")]
+    )
+    if path:
+        # single disk read - lines reused by every extraction function below
+        data = load_file(path)
+        f1 = get_pcb_name(data)
+        f3 = get_fiducials(data)
+        # F4-F7 have no known meaning in source data (single sample, unresolved) - hardcoded as constants
+        f4_to_f7 = [["F4", 0, 0,],["F5", 0, 0,],["F6", 0, 0,],["F7", 0, 0,]]
+        f8_and_f9 = get_component_data(data)
+        end_marker = ["E"]
+        # use pcb name (f1[1]) as output filename
+        save_name = f"{f1[1]}.pcb"
+        # assemble all sections in required output order: F1, F3 x3, F4-F7, F8/F9 pairs, E
+        file = [f1] + f3 + f4_to_f7 + f8_and_f9 + end_marker
+        # open once, write every line while file stays open (avoids truncating on each write)
+        with open(f"{save_name}", "w", encoding="utf-8") as f:
+            for line in file:
+                # convert each item to string and join with spaces to build the output line
+                newline = " ".join(str(word) for word in line)
+                f.writelines(f"{newline}\n")
+    else:  print("user cancelled operation")
 
 main()
