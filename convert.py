@@ -1,5 +1,6 @@
 from tkinter import filedialog
 import tkinter as tk
+import os
 
 # import file function
 def load_file(path):
@@ -15,7 +16,7 @@ def get_pcb_name(data):
         if line.startswith("Pcb name"):
             #format line removing carrige return and spaces
             split = split_name(line)
-            #remove 4.3mm from split list
+            #remove Pcb name from split list
             split.pop(0)
             #add F3 prefix to start of list 
             split.insert(0,"F1")
@@ -83,7 +84,14 @@ def get_component_data(data):
                 component_clean.append(f9_value)
         return component_clean
 
-
+#save in same location file was opened 
+def get_save_location(path):
+   #use os to extract path and name
+   name, txt= os.path.splitext(path)
+   #add .pcb extention
+   save_path = f"{name}.pcb"
+   return save_path
+   
 
 
 # ************* helper functions ******************
@@ -133,7 +141,6 @@ def convert_to_microns(value):
 
 
 
-
 #main
 def main():
    
@@ -149,18 +156,20 @@ def main():
     if path:
         # single disk read - lines reused by every extraction function below
         data = load_file(path)
+        file_save_location = get_save_location(path)
         f1 = get_pcb_name(data)
         f3 = get_fiducials(data)
         # F4-F7 have no known meaning in source data (single sample, unresolved) - hardcoded as constants
         f4_to_f7 = [["F4", 0, 0,],["F5", 0, 0,],["F6", 0, 0,],["F7", 0, 0,]]
         f8_and_f9 = get_component_data(data)
+        #end marker prefix of E
         end_marker = ["E"]
         # use pcb name (f1[1]) as output filename
         save_name = f"{f1[1]}.pcb"
         # assemble all sections in required output order: F1, F3 x3, F4-F7, F8/F9 pairs, E
         file = [f1] + f3 + f4_to_f7 + f8_and_f9 + end_marker
         # open once, write every line while file stays open (avoids truncating on each write)
-        with open(f"{save_name}", "w", encoding="utf-8") as f:
+        with open(f"{file_save_location}", "w", encoding="utf-8") as f:
             for line in file:
                 # convert each item to string and join with spaces to build the output line
                 newline = " ".join(str(word) for word in line)
