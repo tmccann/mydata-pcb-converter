@@ -17,3 +17,27 @@ Tech stack
 Python
 VS Code
 Git / GitHub
+
+## How to Run
+
+### Windows
+1. Check if Python is already installed by opening Command Prompt and running `python --version`
+2. If not installed, install it from [python.org](https://www.python.org/downloads/) (tkinter is bundled automatically)
+3. Download or clone this repository
+4. Double-click `convert.py` to run
+5. Select your CAD export `.txt` file when prompted
+6. The converted `.pcb` file will be saved in the same folder as the source file
+
+### Linux
+1. Python 3 is pre-installed on most Ubuntu systems — check with `python3 --version`
+2. Install tkinter if not already present:
+```bash
+   sudo apt install python3-tk
+```
+3. Download or clone this repository
+4. Open a terminal in the project folder and run:
+```bash
+   python3 convert.py
+```
+5. Select your CAD export `.txt` file when prompted
+6. The converted `.pcb` file will be saved in the same folder as the source file
